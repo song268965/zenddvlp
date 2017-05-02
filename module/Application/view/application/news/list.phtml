@@ -1,0 +1,38 @@
+<table>
+
+	<tr>
+
+		<th>Title</th>
+
+		<th>Content</th>
+
+		<th>
+			Add news
+			</a>
+		</th>
+
+	</tr>
+
+    <?php foreach ($paginator as $newsrow) : ?>
+
+        <tr>
+
+		<td><?php echo $this->escapeHtml($newsrow->title); ?></td>
+
+		<td><?php echo $this->escapeHtml($newsrow->content); ?></td>
+
+		<td>
+
+			<a
+				href="<?php echo  $this->url('news', array('action' => 'edit', 'id' => $newsrow->id));?>"><?php echo $this->translate("Edit") ?></a>
+
+			<a
+				href="<?php echo  $this->url('news', array('action' => 'delete', 'id' => $newsrow->id));?>"><?php echo $this->translate("Delete") ?></a>
+
+		</td>
+
+	</tr>
+
+    <?php endforeach; ?>
+
+</table>
